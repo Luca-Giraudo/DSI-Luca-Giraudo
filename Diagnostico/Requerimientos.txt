@@ -1,0 +1,11 @@
+Funcionales:
+- Registrar guía
+- Registrar cliente
+- Registrar transacción
+- Registrar reserva
+
+No funcionales:
+- Emitir listado por tipo de servicio
+- Verificar CUIT
+- Generar nueva orden de compra con otro proveedor 
+- Generar reclamo

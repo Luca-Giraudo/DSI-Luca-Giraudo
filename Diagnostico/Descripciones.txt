@@ -1,0 +1,24 @@
+Registrar guía:
+- Se ingresa la información del guía (nombre, apellido, dni, cuit, domicilio, telefono, email, ciudad, pais de residencia)
+- Validar si el cuit está habilitado en AFIP
+- Si el cuit esta habilitado, se registra el guía y termina la ejecución
+- Si el cuit no esta habilitado, se muestra un mensaje de error y termina la ejecución
+
+Registrar servicio:
+- Se debe pedir la información del nuevo servicio (titulo, descripción, ubicación, precio por persona, fecha, hora, tipo de servicio), termina la ejecución.
+
+Registrar cliente: 
+- El cliente ingresa tipo de servicio y ubicación deseada 
+- Verificar disponibilidad del servicio
+- Si no existe disponibilidad, se muestra mensaje de error y se da la opción al cliente de ingresar los datos nuevamente, si no, termina la ejecución
+- Si existe disponibilidad, el cliente tiene que ingresar su información
+- Se pide ingresar servicio/s a contratar, fecha, nombre, apellido y dni de cada persona del grupo
+
+Registra reserva:
+- Calcular total de la reserva (cantidad de integrantes * precio por persona del servicio)
+- Crear variable para la seña y guardar en la variable el importe correspondiente a la seña (50% del total)
+- Verificar mediante el gateway de la tarjeta si el pago fue exitoso
+- Si el pago fue exitoso, se registra la reserva en la clase Reserva
+- Enviar al email del cliente un voucher provisorio
+- Si el cliente termina de abonar el saldo restante, enviar al email el voucher definitivo
+- Si el pago no esta abonado en su totalidad antes de la fecha del servicio, cancelar la reserva
