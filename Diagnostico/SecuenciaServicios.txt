@@ -1,0 +1,28 @@
+title Registro de Servicios Turísticos
+
+actor Guía
+boundary "Interfaz de Usuario" as UI
+control "Controlador" as Controller
+database "Persistencia" as Persistence
+
+Guía->UI: Ingresar credenciales
+UI->Controller: Solicitar autenticación de Guía
+Controller->Persistence: Verificar si el CUIT está habilitado en AFIP
+alt CUIT válido
+    Persistence->Controller: Respuesta de AFIP (CUIT válido)
+    Controller->Persistence: Registrar al nuevo Guía
+    Persistence->Controller: Confirmación de registro del Guía
+    Controller->UI: Mostrar mensaje de éxito (Registro Guía)
+else CUIT inválido
+    Persistence->Controller: Respuesta de AFIP (CUIT inválido)
+    Controller->UI: Mostrar mensaje de error (CUIT inválido)
+end
+
+Guía->UI: Seleccionar "Registrar Nuevo Servicio"
+UI->Controller: Solicitar registro de nuevo servicio
+Controller->UI: Mostrar formulario de registro de servicios
+Guía->UI: Completar detalles del servicio
+UI->Controller: Enviar detalles del servicio
+Controller->Persistence: Validar y registrar el nuevo servicio
+Persistence->Controller: Confirmación de registro del servicio
+Controller->UI: Mostrar mensaje de éxito (Registro Servicio)
